@@ -12,7 +12,7 @@
     }
     .mainCanvas {
         position: absolute;
-        top: 0px;
+        top: 50px;
         left: 0px;
         background: #48C;
 
@@ -71,9 +71,10 @@
             $.isStr = val => typeof val === "string";
             $$.INSERT = 0;
             $$.APPEND = 1;
-            const infoStyle = {color: "white", fontFamily: "arial", fontSize: "10px", zIndex:1, position: "absolute", pointerEvents: "none",  display: "none"};
+            const infoStyle = {color: "white", fontFamily: "arial", fontSize: "20px", zIndex:1, position: "absolute", pointerEvents: "none",  display: "none"};
             const helpEls = [
-                $("div",{textContent: "?", style: {...infoStyle, bottom: "10px", display: null, zIndex: 1000, pointerEvents: null}}),
+                $("div",{textContent: "info", style: {...infoStyle, bottom: "200px", left: "80px", display: null, zIndex: 1000, pointerEvents: null}}),
+                $("div",{textContent: "", style: {...infoStyle, bottom: "10px", display: null, zIndex: 1000, pointerEvents: null}}),
                 $("div",{textContent: "Keys [0] to rack up. [1] to save position. [2] to recall positions", style: {...infoStyle, bottom: "80px"}}),
                 $("div",{textContent: "After shot while balls moving hold [RIGHT] to accelerate time", style: {...infoStyle, bottom: "60px"}}),
                 $("div",{textContent: "Mouse [LEFT hold] to power [LEFT hold then RIGHT] Fine aim. [Release] shots", style: {...infoStyle, bottom: "40px"}}),
@@ -220,6 +221,8 @@
             const touches = Touch(document);
 
             var autoStart = true;
+
+
             const keyboard = simpleKeyboard();
             keyboard.addKey("Digit1", "Digit2", "Digit0",);
             const keys = keyboard.keys;
@@ -1418,9 +1421,7 @@
                             // Saving positions permanently
 
           // Function to save positions to localStorage
-function savePositionsToLocalStorage() {
-    localStorage.setItem("positionSaves", JSON.stringify(positionSaves));
-}
+
 
 // Load saved positions from localStorage on startup
 function loadPositionsFromLocalStorage() {
